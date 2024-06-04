@@ -5,6 +5,7 @@ from .views import (
 )
 
 urlpatterns = [
+    path('', lista_proyectos, name='lista_proyectos'),
     path('proyectos/', lista_proyectos, name='lista_proyectos'),
     path('proyectos/crear/', crear_proyecto, name='crear_proyecto'),
     path('proyectos/actualizar/<int:pk>/', actualizar_proyecto, name='actualizar_proyecto'),
