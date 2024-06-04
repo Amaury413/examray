@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'ToDo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'sistema_tareas',
+        'USER': 'pemdbuser',
+        'PASSWORD': 'pemdb_user12',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
