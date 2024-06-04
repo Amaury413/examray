@@ -1,0 +1,48 @@
+CREATE TABLE auditores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE aplicaciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    fecha_creacion DATE NOT NULL
+);
+
+CREATE TABLE estados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_estado VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE tareas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    fecha_creacion DATE NOT NULL,
+    fecha_vencimiento DATE,
+    id_auditor INT,
+    id_aplicacion INT,
+    id_estado INT,
+    FOREIGN KEY (id_auditor) REFERENCES auditores(id),
+    FOREIGN KEY (id_aplicacion) REFERENCES aplicaciones(id),
+    FOREIGN KEY (id_estado) REFERENCES estados(id)
+);
+
+INSERT INTO auditores (nombre, correo) VALUES
+('Manuel Alejando', 'manuel.rayquaza@example.com'),
+('Giovanni Pliego', 'steve.jobs@example.com');
+
+INSERT INTO aplicaciones (nombre, descripcion, fecha_creacion) VALUES
+('App 1', 'Descripción de la App 1', '2023-01-01'),
+('App 2', 'Descripción de la App 2', '2023-02-01');
+
+INSERT INTO estados (nombre_estado) VALUES
+('Pendiente'),
+('En Progreso'),
+('Completada');
+
+INSERT INTO tareas (titulo, descripcion, fecha_creacion, fecha_vencimiento, id_auditor, id_aplicacion, id_estado) VALUES
+('Revisión de seguridad', 'Revisar la seguridad de la App 1', '2024-06-01', '2024-06-10', 1, 1, 1),
+('Test de funcionalidad', 'Realizar pruebas funcionales en App 2', '2024-06-02', '2024-06-12', 2, 2, 2);
