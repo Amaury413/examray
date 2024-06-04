@@ -25,10 +25,10 @@
                             <tr>
                                 <td class="text-center">{{ proyecto.nombre }}</td>
                                 <td class="text-center">{{ proyecto.descripcion }}</td>
-                                <td class="text-center">{{actions}}
+                                <td class="text-center">
                                     <div class="text-center">
-                                        <a href="{% url 'crear_proyecto' %}" class="btn btn-success">Actualizar</a>
-                                        <a href="{% url 'crear_proyecto' %}" class="btn btn-danger">Eliminar</a>
+                                        <a href="{% url 'actualizar_proyecto' proyecto.pk %}" class="btn btn-success">Actualizar</a>
+                                        <a href="{% url 'eliminar_proyecto' proyecto.pk %}" class="btn btn-danger">Eliminar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -46,5 +46,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-

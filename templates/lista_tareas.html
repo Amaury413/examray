@@ -25,10 +25,10 @@
                             <tr>
                                 <td class="text-center">{{ tarea.titulo }}</td>
                                 <td class="text-center">{{ tarea.estado }}</td>
-                                <td class="text-center">{{actions}}
+                                <td class="text-center">
                                     <div class="text-center">
-                                        <a href="{% url 'crear_proyecto' %}" class="btn btn-success">Actualizar</a>
-                                        <a href="{% url 'crear_proyecto' %}" class="btn btn-danger">Eliminar</a>
+                                        <a href="{% url 'actualizar_tarea' tarea.pk %}" class="btn btn-success">Actualizar</a>
+                                        <a href="{% url 'eliminar_tarea' tarea.pk %}" class="btn btn-danger">Eliminar</a>
                                     </div>
                                 </td>
                             </tr>
