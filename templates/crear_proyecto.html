@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Proyecto</title>
+</head>
+<body>
+    <h1>Crear Proyecto</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'lista_proyectos' %}">Volver a la lista de proyectos</a>
+</body>
+</html>
