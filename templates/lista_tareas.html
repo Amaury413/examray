@@ -6,21 +6,31 @@
 </head>
 <body>
     <div class="container mt-5">
+        <div class="text-right mt-3">
+            <a href="{% url 'lista_proyectos' %}" class="btn btn-primary">Proyectos</a>
+        </div>
         <h1 class="text-center">Tareas</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">Título</th>
-                            <th scope="col">Estado</th>
+                            <th class="text-center" scope="col">Título</th>
+                            <th class="text-center" scope="col">Estado</th>
+                            <th class="text-center" scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for tarea in tareas %}
                             <tr>
-                                <td>{{ tarea.titulo }}</td>
-                                <td>{{ tarea.estado }}</td>
+                                <td class="text-center">{{ tarea.titulo }}</td>
+                                <td class="text-center">{{ tarea.estado }}</td>
+                                <td class="text-center">{{actions}}
+                                    <div class="text-center">
+                                        <a href="{% url 'crear_proyecto' %}" class="btn btn-success">Actualizar</a>
+                                        <a href="{% url 'crear_proyecto' %}" class="btn btn-danger">Eliminar</a>
+                                    </div>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>
